@@ -12,7 +12,7 @@ namespace MathAnalytics.Test.Extensions
         #region SourceIsNull - ArgumentNullExceptionThrown
 
         [Fact]
-        public void CalculateCumulativePercentage_SourceIsNull_ArgumentNullExceptionThrown()
+        public void CalculateCumulativePercentage_DecimalProperty_SourceIsNull_ArgumentNullExceptionThrown()
         {
             IEnumerable<TimeSerie<decimal>> source = null;
 
@@ -33,9 +33,54 @@ namespace MathAnalytics.Test.Extensions
             comparison.ShouldThrow<ArgumentNullException>();
         }
 
+
+        [Fact]
+        public void CalculateCumulativePercentage_DoubleProperty_SourceIsNull_ArgumentNullExceptionThrown()
+        {
+            IEnumerable<TimeSerie<double>> source = null;
+
+            Action comparison = () =>
+            {
+                source
+                     .OrderBy(x => x.ReferenceDate)
+                     .CalculateCumulativePercentage(
+                         x => x.GrowthRate,
+                         (x, cumProf) => new
+                         {
+                             Date = x.ReferenceDate,
+                             CumulativePercentage = cumProf
+                         });
+
+            };
+
+            comparison.ShouldThrow<ArgumentNullException>();
+        }
+
+
+        [Fact]
+        public void CalculateCumulativePercentage_FloatProperty_SourceIsNull_ArgumentNullExceptionThrown()
+        {
+            IEnumerable<TimeSerie<float>> source = null;
+
+            Action comparison = () =>
+            {
+                source
+                     .OrderBy(x => x.ReferenceDate)
+                     .CalculateCumulativePercentage(
+                         x => x.GrowthRate,
+                         (x, cumProf) => new
+                         {
+                             Date = x.ReferenceDate,
+                             CumulativePercentage = cumProf
+                         });
+
+            };
+
+            comparison.ShouldThrow<ArgumentNullException>();
+        }
         #endregion
 
-        #region SelctorIsNull - ArgumentNullExceptionThrown
+        #region SelectorIsNull - ArgumentNullExceptionThrown
 
         [Fact]
         public void CalculateCumulativePercentage_DecimalProperty_SelectorIsNull_ArgumentNullExceptionThrown()
@@ -324,6 +369,5 @@ namespace MathAnalytics.Test.Extensions
         }
 
         #endregion
-        
     }
 }
