@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace MathAnalytics
 {
@@ -9,7 +8,7 @@ namespace MathAnalytics
     // See the LICENSE file in the project root for more information.
     public static partial class Extensions
     {
-        public static void CalculateVariation<TSource>(this IEnumerable<TSource> source, Func<TSource, decimal> selector, Action<TSource, decimal> action)
+        public static IEnumerable<TResult> CalculateVariation<TSource, TResult>(this IEnumerable<TSource> source, Func<TSource, decimal> selector, Func<TSource, decimal, TResult> resultSelector)
         {
             if (source == null)
             {
@@ -33,7 +32,7 @@ namespace MathAnalytics
                     else
                         variation = 0;
 
-                    action(item, variation);
+                    yield return resultSelector(item, variation);
 
                     lastValue = selector(item);
                 }
@@ -41,7 +40,7 @@ namespace MathAnalytics
 
         }
 
-        public static void CalculateVariation<TSource>(this IEnumerable<TSource> source, Func<TSource, double> selector, Action<TSource, double> action)
+        public static IEnumerable<TResult> CalculateVariation<TSource, TResult>(this IEnumerable<TSource> source, Func<TSource, double> selector, Func<TSource, double, TResult> resultSelector)
         {
             if (source == null)
             {
@@ -65,7 +64,7 @@ namespace MathAnalytics
                     else
                         variation = 0;
 
-                    action(item, variation);
+                    yield return resultSelector(item, variation);
 
                     lastValue = selector(item);
                 }
@@ -73,7 +72,7 @@ namespace MathAnalytics
 
         }
 
-        public static void CalculateVariation<TSource>(this IEnumerable<TSource> source, Func<TSource, float> selector, Action<TSource, float> action)
+        public static IEnumerable<TResult> CalculateVariation<TSource, TResult>(this IEnumerable<TSource> source, Func<TSource, float> selector, Func<TSource, float, TResult> resultSelector)
         {
             if (source == null)
             {
@@ -97,13 +96,12 @@ namespace MathAnalytics
                     else
                         variation = 0;
 
-                    action(item, variation);
+                    yield return resultSelector(item, variation);
 
                     lastValue = selector(item);
                 }
             }
 
         }
-
     }
 }

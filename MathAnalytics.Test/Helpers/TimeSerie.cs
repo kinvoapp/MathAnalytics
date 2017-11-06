@@ -15,13 +15,20 @@ namespace MathAnalytics.Test.Helpers
 
         public decimal GrowthRate { get; set; }
 
-        public string Details { get; set; }
 
+    }
 
-        public decimal Variation { get; set; }
+    public class TimeSerie<T>
+    {
+        public TimeSerie(DateTime referenceDate, T value)
+        {
+            this.Value = value;
+        }
 
-        public decimal CumulativeProfitability { get; set; }
+        public T Value { get; set; }
 
+        public DateTime ReferenceDate { get; set; }
 
+        public T GrowthRate { get; set; }
     }
 }
