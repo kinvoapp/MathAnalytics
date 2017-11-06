@@ -8,7 +8,7 @@ namespace MathAnalytics
     // See the LICENSE file in the project root for more information.
     public static partial class Extensions
     {
-        public static int GetAmountOfMonthsUntil(this DateTime initialMonthlyReference, DateTime finalMonthlyReference)
+        public static int AmountOfMonthsUntil(this DateTime initialMonthlyReference, DateTime finalMonthlyReference)
         {
             return DateTimeSpan.CompareDates(initialMonthlyReference, finalMonthlyReference).Months;
         }

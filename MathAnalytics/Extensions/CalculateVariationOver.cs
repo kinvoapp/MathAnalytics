@@ -5,7 +5,7 @@
     // See the LICENSE file in the project root for more information.
     public static partial class Extensions
     {
-        public static decimal GetGrowthPercentageOver(this decimal currentValue, decimal previousValue)
+        public static decimal CalculateVariationOver(this decimal currentValue, decimal previousValue)
         {
             if (previousValue == 0)
                 return 0;
@@ -13,7 +13,7 @@
             return ((currentValue / previousValue) - 1) * 100;
         }
 
-        public static double GetGrowthPercentageOver(this double currentValue, double previousValue)
+        public static double CalculateVariationOver(this double currentValue, double previousValue)
         {
             if (previousValue == 0)
                 return 0;
@@ -21,7 +21,7 @@
             return ((currentValue / previousValue) - 1) * 100;
         }
 
-        public static float GetGrowthPercentageOver(this float currentValue, float previousValue)
+        public static float CalculateVariationOver(this float currentValue, float previousValue)
         {
             if (previousValue == 0)
                 return 0;

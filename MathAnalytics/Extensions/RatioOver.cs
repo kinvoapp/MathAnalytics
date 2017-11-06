@@ -5,28 +5,28 @@
     // See the LICENSE file in the project root for more information.
     public static partial class Extensions
     {
-        public static decimal GetRatioOver(this decimal numerator, decimal denominator)
+        public static decimal RatioOver(this decimal numerator, decimal denominator)
         {
             if (denominator == 0)
                 return 0;
 
-            return (numerator / denominator) * 100;
+            return (numerator / denominator);
         }
 
-        public static double GetRatioOver(this double numerator, double denominator)
+        public static double RatioOver(this double numerator, double denominator)
         {
             if (denominator == 0)
                 return 0;
 
-            return (numerator / denominator) * 100;
+            return (numerator / denominator);
         }
 
-        public static float GetRatioOver(this float numerator, float denominator)
+        public static float RatioOver(this float numerator, float denominator)
         {
             if (denominator == 0)
                 return 0;
 
-            return (numerator / denominator) * 100;
+            return (numerator / denominator);
         }
     }
 }

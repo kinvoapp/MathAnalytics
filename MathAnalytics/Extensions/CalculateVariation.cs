@@ -28,7 +28,7 @@ namespace MathAnalytics
                 foreach (TSource item in source)
                 {
                     if (lastValue != 0)
-                        variation = selector(item).GetGrowthPercentageOver(lastValue);
+                        variation = selector(item).CalculateVariationOver(lastValue);
                     else
                         variation = 0;
 
@@ -60,7 +60,7 @@ namespace MathAnalytics
                 foreach (TSource item in source)
                 {
                     if (lastValue != 0)
-                        variation = selector(item).GetGrowthPercentageOver(lastValue);
+                        variation = selector(item).CalculateVariationOver(lastValue);
                     else
                         variation = 0;
 
@@ -92,7 +92,7 @@ namespace MathAnalytics
                 foreach (TSource item in source)
                 {
                     if (lastValue != 0)
-                        variation = selector(item).GetGrowthPercentageOver(lastValue);
+                        variation = selector(item).CalculateVariationOver(lastValue);
                     else
                         variation = 0;
 
