@@ -244,5 +244,6 @@ namespace MathAnalytics.Test.Extensions
         }
 
         #endregion
+
     }
 }
