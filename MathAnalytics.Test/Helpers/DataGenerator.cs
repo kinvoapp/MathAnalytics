@@ -32,6 +32,18 @@ namespace MathAnalytics.Test.Helpers
             return _sampleTimeSerie;
         }
 
+        public static IEnumerable<WeightedItem<T>> CreateWeightedItemsList<T>()
+        {
+            var weightedList = new List<WeightedItem<T>>();
+
+            weightedList.Add(new WeightedItem<T>(GetValue<T>(6.532690000), GetValue<T>(150)));
+            weightedList.Add(new WeightedItem<T>(GetValue<T>(8.789250000), GetValue<T>(80)));
+            weightedList.Add(new WeightedItem<T>(GetValue<T>(9.847520000), GetValue<T>(35)));
+            weightedList.Add(new WeightedItem<T>(GetValue<T>(16.51326900), GetValue<T>(10)));
+
+            return weightedList;
+        }
+
         private static T GetValue<T>(double value)
         {
             return (T)Convert.ChangeType(value, typeof(T));
