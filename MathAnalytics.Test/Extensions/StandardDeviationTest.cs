@@ -3,16 +3,17 @@ using MathAnalytics.Test.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Xunit;
 
 namespace MathAnalytics.Test.Extensions
 {
-    public class VarianceTest
+    public class StandardDeviationTest
     {
         #region SourceIsNull - ArgumentNullExceptionThrown
 
         [Fact]
-        public void VarianceOfDecimal_SourceIsNull_ArgumentNullExceptionThrown()
+        public void StandardDeviationOfDecimal_SourceIsNull_ArgumentNullExceptionThrown()
         {
             IEnumerable<TimeSerie<decimal>> source = null;
 
@@ -20,7 +21,7 @@ namespace MathAnalytics.Test.Extensions
             {
                 source
                      .OrderBy(x => x.ReferenceDate)
-                     .Variance(x => x.Value);
+                     .StandardDeviation(x => x.Value);
 
             };
 
@@ -29,7 +30,7 @@ namespace MathAnalytics.Test.Extensions
 
 
         [Fact]
-        public void VarianceOfDouble_SourceIsNull_ArgumentNullExceptionThrown()
+        public void StandardDeviationOfDouble_SourceIsNull_ArgumentNullExceptionThrown()
         {
             IEnumerable<TimeSerie<double>> source = null;
 
@@ -37,7 +38,7 @@ namespace MathAnalytics.Test.Extensions
             {
                 source
                      .OrderBy(x => x.ReferenceDate)
-                     .Variance(x => x.Value);
+                     .StandardDeviation(x => x.Value);
 
             };
 
@@ -46,7 +47,7 @@ namespace MathAnalytics.Test.Extensions
 
 
         [Fact]
-        public void VarianceOfFloat_SourceIsNull_ArgumentNullExceptionThrown()
+        public void StandardDeviationOfFloat_SourceIsNull_ArgumentNullExceptionThrown()
         {
             IEnumerable<TimeSerie<float>> source = null;
 
@@ -54,7 +55,7 @@ namespace MathAnalytics.Test.Extensions
             {
                 source
                      .OrderBy(x => x.ReferenceDate)
-                     .Variance(x => x.Value);
+                     .StandardDeviation(x => x.Value);
 
             };
 
@@ -65,7 +66,7 @@ namespace MathAnalytics.Test.Extensions
         #region SelectorIsNull - ArgumentNullExceptionThrown
 
         [Fact]
-        public void VarianceOfDecimal_SelectorIsNull_ArgumentNullExceptionThrown()
+        public void StandardDeviationOfDecimal_SelectorIsNull_ArgumentNullExceptionThrown()
         {
             IEnumerable<TimeSerie<decimal>> source = DataGenerator.CreateTimeSerieList<decimal>();
 
@@ -75,7 +76,7 @@ namespace MathAnalytics.Test.Extensions
             {
                 source
                     .OrderBy(x => x.ReferenceDate)
-                    .Variance(selector);
+                    .StandardDeviation(selector);
 
             };
 
@@ -83,7 +84,7 @@ namespace MathAnalytics.Test.Extensions
         }
 
         [Fact]
-        public void VarianceOfDouble_SelectorIsNull_ArgumentNullExceptionThrown()
+        public void StandardDeviationOfDouble_SelectorIsNull_ArgumentNullExceptionThrown()
         {
             IEnumerable<TimeSerie<double>> source = DataGenerator.CreateTimeSerieList<double>();
 
@@ -93,7 +94,7 @@ namespace MathAnalytics.Test.Extensions
             {
                 source
                     .OrderBy(x => x.ReferenceDate)
-                    .Variance(selector);
+                    .StandardDeviation(selector);
 
             };
 
@@ -101,7 +102,7 @@ namespace MathAnalytics.Test.Extensions
         }
 
         [Fact]
-        public void VarianceOfFloat_SelectorIsNull_ArgumentNullExceptionThrown()
+        public void StandardDeviationOfFloat_SelectorIsNull_ArgumentNullExceptionThrown()
         {
             IEnumerable<TimeSerie<float>> source = DataGenerator.CreateTimeSerieList<float>();
 
@@ -111,7 +112,7 @@ namespace MathAnalytics.Test.Extensions
             {
                 source
                     .OrderBy(x => x.ReferenceDate)
-                    .Variance(selector);
+                    .StandardDeviation(selector);
 
             };
 
@@ -123,7 +124,7 @@ namespace MathAnalytics.Test.Extensions
         #region SourceIsEmptyCollection - ZeroReturned
 
         [Fact]
-        public void VarianceOfDecimal_SourceIsEmptyCollection_InvalidOperationExceptionThrown()
+        public void StandardDeviationOfDecimal_SourceIsEmptyCollection_InvalidOperationExceptionThrown()
         {
             IEnumerable<TimeSerie<decimal>> source = new List<TimeSerie<decimal>>();
 
@@ -131,7 +132,7 @@ namespace MathAnalytics.Test.Extensions
             {
                 source
                     .OrderBy(x => x.ReferenceDate)
-                    .Variance(x => x.Value);
+                    .StandardDeviation(x => x.Value);
 
             };
 
@@ -139,7 +140,7 @@ namespace MathAnalytics.Test.Extensions
         }
 
         [Fact]
-        public void VarianceOfDouble_SourceIsEmptyCollection_InvalidOperationExceptionThrown()
+        public void StandardDeviationOfDouble_SourceIsEmptyCollection_InvalidOperationExceptionThrown()
         {
             IEnumerable<TimeSerie<double>> source = new List<TimeSerie<double>>();
 
@@ -147,7 +148,7 @@ namespace MathAnalytics.Test.Extensions
             {
                 source
                     .OrderBy(x => x.ReferenceDate)
-                    .Variance(x => x.Value);
+                    .StandardDeviation(x => x.Value);
 
             };
 
@@ -155,7 +156,7 @@ namespace MathAnalytics.Test.Extensions
         }
 
         [Fact]
-        public void VarianceOfFloat_SourceIsEmptyCollection_InvalidOperationExceptionThrown()
+        public void StandardDeviationOfFloat_SourceIsEmptyCollection_InvalidOperationExceptionThrown()
         {
             IEnumerable<TimeSerie<float>> source = new List<TimeSerie<float>>();
 
@@ -163,7 +164,7 @@ namespace MathAnalytics.Test.Extensions
             {
                 source
                     .OrderBy(x => x.ReferenceDate)
-                    .Variance(x => x.Value);
+                    .StandardDeviation(x => x.Value);
 
             };
 
@@ -172,36 +173,36 @@ namespace MathAnalytics.Test.Extensions
 
         #endregion
 
-        #region SourceIsNotEmpty - VarianceReturned
+        #region SourceIsNotEmpty - StandardDeviationReturned
 
         [Fact]
-        public void VarianceOfDecimal_SourceIsNotEmpty_VarianceReturned()
+        public void StandardDeviationOfDecimal_SourceIsNotEmpty_StandardDeviationReturned()
         {
             IEnumerable<TimeSerie<decimal>> source = DataGenerator.CreateTimeSerieList<decimal>();
 
             source
                 .OrderBy(x => x.ReferenceDate)
-                .Variance(x => x.Value).Should().Be(13.0716706087362M);
+                .StandardDeviation(x => x.Value).Should().Be(3.61547653964677M);
         }
 
         [Fact]
-        public void VarianceOfDouble_SourceIsNotEmpty_VarianceReturned()
+        public void StandardDeviationOfDouble_SourceIsNotEmpty_StandardDeviationReturned()
         {
             IEnumerable<TimeSerie<double>> source = DataGenerator.CreateTimeSerieList<double>();
 
             source
                 .OrderBy(x => x.ReferenceDate)
-                .Variance(x => x.Value).Should().Be(13.071670608736184);
+                .StandardDeviation(x => x.Value).Should().Be(3.6154765396467705);
         }
 
         [Fact]
-        public void VarianceOfFloat_SourceIsNotEmpty_VarianceReturned()
+        public void StandardDeviationOfFloat_SourceIsNotEmpty_StandardDeviationReturned()
         {
             IEnumerable<TimeSerie<float>> source = DataGenerator.CreateTimeSerieList<float>();
 
             source
                 .OrderBy(x => x.ReferenceDate)
-                .Variance(x => x.Value).Should().Be(13.0716658F);
+                .StandardDeviation(x => x.Value).Should().Be(3.615476F);
         }
 
         #endregion
@@ -209,7 +210,7 @@ namespace MathAnalytics.Test.Extensions
         #region SourceCumulativePercentageToOverflow - OverflowExceptionThrown or Infinity returned
 
         [Fact]
-        public void VarianceOfDecimal_SourceCumulativePercentageToOverflow_OverflowExceptionThrown()
+        public void StandardDeviationOfDecimal_SourceCumulativePercentageToOverflow_OverflowExceptionThrown()
         {
             IEnumerable<TimeSerie<decimal>> source = new TimeSerie<decimal>[] {
                 new TimeSerie<decimal>(new DateTime(2012, 01, 01), decimal.MaxValue),
@@ -220,7 +221,7 @@ namespace MathAnalytics.Test.Extensions
             {
                 source
                     .OrderBy(x => x.ReferenceDate)
-                    .Variance(x => x.Value);
+                    .StandardDeviation(x => x.Value);
 
             };
 
@@ -228,7 +229,7 @@ namespace MathAnalytics.Test.Extensions
         }
 
         [Fact]
-        public void VarianceOfDouble_SourceCumulativePercentageToOverflow_NotInfinityReturned()
+        public void StandardDeviationOfDouble_SourceCumulativePercentageToOverflow_NotInfinityReturned()
         {
             IEnumerable<TimeSerie<double>> source = new TimeSerie<double>[] {
                 new TimeSerie<double>(new DateTime(2012, 01, 01), double.MaxValue),
@@ -238,13 +239,13 @@ namespace MathAnalytics.Test.Extensions
 
             var result = source
                             .OrderBy(x => x.ReferenceDate)
-                            .Variance(x => x.Value);
+                            .StandardDeviation(x => x.Value);
 
             double.IsPositiveInfinity(result).Should().BeFalse();
         }
 
         [Fact]
-        public void VarianceOfFloat_SourceCumulativePercentageToOverflow_NotInfinityReturned()
+        public void StandardDeviationOfFloat_SourceCumulativePercentageToOverflow_NotInfinityReturned()
         {
             IEnumerable<TimeSerie<float>> source = new TimeSerie<float>[] {
                 new TimeSerie<float>(new DateTime(2012, 01, 01),  float.MaxValue),
@@ -254,7 +255,7 @@ namespace MathAnalytics.Test.Extensions
 
             var result = source
                             .OrderBy(x => x.ReferenceDate)
-                            .Variance(x => x.Value);
+                            .StandardDeviation(x => x.Value);
 
             float.IsPositiveInfinity(result).Should().BeFalse();
         }

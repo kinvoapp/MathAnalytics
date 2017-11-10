@@ -190,10 +190,10 @@ namespace MathAnalytics.Test.Extensions
 
         #endregion
 
-        #region SourceIsNotEmpty - ProperCumulativePercentageReturned
+        #region SourceIsNotEmpty - CompoundInterestReturned
 
         [Fact]
-        public void AccumulateCompoundInterest_IEnumerableToScalar_Decimal_SourceIsNotEmpty_ProperCumulativePercentageReturned()
+        public void AccumulateCompoundInterest_IEnumerableToScalar_Decimal_SourceIsNotEmpty_CompoundInterestReturned()
         {
             IEnumerable<TimeSerie<decimal>> source = DataGenerator.CreateTimeSerieList<decimal>();
 
@@ -203,7 +203,7 @@ namespace MathAnalytics.Test.Extensions
         }
 
         [Fact]
-        public void AccumulateCompoundInterest_IEnumerableToScalar_Double_SourceIsNotEmpty_ProperCumulativePercentageReturned()
+        public void AccumulateCompoundInterest_IEnumerableToScalar_Double_SourceIsNotEmpty_CompoundInterestReturned()
         {
             IEnumerable<TimeSerie<double>> source = DataGenerator.CreateTimeSerieList<double>();
 
@@ -213,7 +213,7 @@ namespace MathAnalytics.Test.Extensions
         }
 
         [Fact]
-        public void AccumulateCompoundInterest_IEnumerableToScalar_Float_SourceIsNotEmpty_ProperCumulativePercentageReturned()
+        public void AccumulateCompoundInterest_IEnumerableToScalar_Float_SourceIsNotEmpty_CompoundInterestReturned()
         {
             IEnumerable<TimeSerie<float>> source = DataGenerator.CreateTimeSerieList<float>();
 
@@ -495,10 +495,10 @@ namespace MathAnalytics.Test.Extensions
 
         #endregion
 
-        #region SourceIsNotEmpty - ProperCumulativePercentageReturned
+        #region SourceIsNotEmpty - CompoundInterestReturned
 
         [Fact]
-        public void AccumulateCompoundInterest_IEnumerableToIEnumberable_DecimalProperty_SourceIsNotEmpty_ProperCumulativePercentageReturned()
+        public void AccumulateCompoundInterest_IEnumerableToIEnumberable_DecimalProperty_SourceIsNotEmpty_CompoundInterestReturned()
         {
             IEnumerable<TimeSerie<decimal>> source = DataGenerator.CreateTimeSerieList<decimal>();
 
@@ -522,7 +522,7 @@ namespace MathAnalytics.Test.Extensions
         }
 
         [Fact]
-        public void AccumulateCompoundInterest_IEnumerableToIEnumberable_DoubleProperty_SourceIsNotEmpty_ProperCumulativePercentageReturned()
+        public void AccumulateCompoundInterest_IEnumerableToIEnumberable_DoubleProperty_SourceIsNotEmpty_CompoundInterestReturned()
         {
             IEnumerable<TimeSerie<double>> source = DataGenerator.CreateTimeSerieList<double>();
 
@@ -545,7 +545,7 @@ namespace MathAnalytics.Test.Extensions
         }
 
         [Fact]
-        public void AccumulateCompoundInterest_IEnumerableToIEnumberable_FloatProperty_SourceIsNotEmpty_ProperCumulativePercentageReturned()
+        public void AccumulateCompoundInterest_IEnumerableToIEnumberable_FloatProperty_SourceIsNotEmpty_CompoundInterestReturned()
         {
             IEnumerable<TimeSerie<float>> source = DataGenerator.CreateTimeSerieList<float>();
 
