@@ -12,7 +12,8 @@
     <PackageTags>math statistics calculation calculator</PackageTags>
     <PackageReleaseNotes>New methods:
 - Variance
-- StandardDeviation</PackageReleaseNotes>
+- StandardDeviation
+- SharpeRatio</PackageReleaseNotes>
   </PropertyGroup>
 
 </Project>
