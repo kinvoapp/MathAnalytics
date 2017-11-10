@@ -25,7 +25,7 @@ namespace MathAnalytics.Test.Helpers
             _dailyGrowthObject.GrowthRate = GetValue<T>(6.532690000);
             _sampleTimeSerie.Add(_dailyGrowthObject);
 
-            _dailyGrowthObject = new TimeSerie<T>(new DateTime(2012, 01, 12), GetValue<T>(2.46551));
+            _dailyGrowthObject = new TimeSerie<T>(new DateTime(2012, 01, 13), GetValue<T>(2.46551));
             _dailyGrowthObject.GrowthRate = GetValue<T>(5.32690000);
             _sampleTimeSerie.Add(_dailyGrowthObject);
 
@@ -40,6 +40,18 @@ namespace MathAnalytics.Test.Helpers
             weightedList.Add(new WeightedItem<T>(GetValue<T>(8.789250000), GetValue<T>(80)));
             weightedList.Add(new WeightedItem<T>(GetValue<T>(9.847520000), GetValue<T>(35)));
             weightedList.Add(new WeightedItem<T>(GetValue<T>(16.51326900), GetValue<T>(10)));
+
+            return weightedList;
+        }
+
+        public static IEnumerable<SharpeRatioSampleItem<T>> CreateSharpeRatioSampleItemsList<T>()
+        {
+            var weightedList = new List<SharpeRatioSampleItem<T>>();
+
+            weightedList.Add(new SharpeRatioSampleItem<T>(new DateTime(2012, 01, 01), GetValue<T>(6.532690000), GetValue<T>(5.521955)));
+            weightedList.Add(new SharpeRatioSampleItem<T>(new DateTime(2012, 01, 03), GetValue<T>(8.789250000), GetValue<T>(6.565489)));
+            weightedList.Add(new SharpeRatioSampleItem<T>(new DateTime(2012, 01, 07), GetValue<T>(9.847520000), GetValue<T>(7.594824)));
+            weightedList.Add(new SharpeRatioSampleItem<T>(new DateTime(2012, 01, 12), GetValue<T>(16.51326900), GetValue<T>(12.59152)));
 
             return weightedList;
         }

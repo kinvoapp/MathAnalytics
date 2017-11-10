@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MathAnalytics
 {
@@ -7,6 +8,8 @@ namespace MathAnalytics
     // See the LICENSE file in the project root for more information.
     public static partial class Extensions
     {
+        #region SharpeRatio scalar to scalar
+
         public static decimal SharpeRatio(this decimal portfolioReturn, decimal riskFreeRate, decimal standardDeviationOfPortfolioReturn)
         {
             if (standardDeviationOfPortfolioReturn == 0)
@@ -30,5 +33,114 @@ namespace MathAnalytics
 
             return (portfolioReturn - riskFreeRate) / standardDeviationOfPortfolioReturn;
         }
+
+        #endregion
+
+        #region SharpeRatio IEnumerable to scalar
+
+        public static decimal SharpeRatio<TSource>(this IEnumerable<TSource> source, Func<TSource, decimal> portfolioReturnSelector, Func<TSource, decimal> riskFreeRateSelector)
+        {
+            if (source == null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+
+            if (portfolioReturnSelector == null)
+            {
+                throw new ArgumentNullException(nameof(portfolioReturnSelector));
+            }
+
+            if (riskFreeRateSelector == null)
+            {
+                throw new ArgumentNullException(nameof(riskFreeRateSelector));
+            }
+
+            decimal portfolioReturn = 0M;
+            decimal riskFreeRate = 0M;
+
+            checked
+            {
+                foreach (TSource item in source)
+                {
+                    portfolioReturn = portfolioReturn.AccumulateCompoundInterest(portfolioReturnSelector(item));
+                    riskFreeRate = riskFreeRate.AccumulateCompoundInterest(riskFreeRateSelector(item));
+                }
+
+                var standardDeviation = source.StandardDeviation(portfolioReturnSelector);
+
+                return portfolioReturn.SharpeRatio(riskFreeRate, standardDeviation);
+            }
+        }
+
+        public static double SharpeRatio<TSource>(this IEnumerable<TSource> source, Func<TSource, double> portfolioReturnSelector, Func<TSource, double> riskFreeRateSelector)
+        {
+            if (source == null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+
+            if (portfolioReturnSelector == null)
+            {
+                throw new ArgumentNullException(nameof(portfolioReturnSelector));
+            }
+
+            if (riskFreeRateSelector == null)
+            {
+                throw new ArgumentNullException(nameof(riskFreeRateSelector));
+            }
+
+            double portfolioReturn = 0;
+            double riskFreeRate = 0;
+
+            checked
+            {
+                foreach (TSource item in source)
+                {
+                    portfolioReturn = portfolioReturn.AccumulateCompoundInterest(portfolioReturnSelector(item));
+                    riskFreeRate = riskFreeRate.AccumulateCompoundInterest(riskFreeRateSelector(item));
+                }
+
+                var standardDeviation = source.StandardDeviation(portfolioReturnSelector);
+
+                return portfolioReturn.SharpeRatio(riskFreeRate, standardDeviation);
+            }
+        }
+
+        public static float SharpeRatio<TSource>(this IEnumerable<TSource> source, Func<TSource, float> portfolioReturnSelector, Func<TSource, float> riskFreeRateSelector)
+        {
+            if (source == null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+
+            if (portfolioReturnSelector == null)
+            {
+                throw new ArgumentNullException(nameof(portfolioReturnSelector));
+            }
+
+            if (riskFreeRateSelector == null)
+            {
+                throw new ArgumentNullException(nameof(riskFreeRateSelector));
+            }
+
+            float portfolioReturn = 0;
+            float riskFreeRate = 0;
+
+            checked
+            {
+                foreach (TSource item in source)
+                {
+                    portfolioReturn = portfolioReturn.AccumulateCompoundInterest(portfolioReturnSelector(item));
+                    riskFreeRate = riskFreeRate.AccumulateCompoundInterest(riskFreeRateSelector(item));
+                }
+
+                var standardDeviation = source.StandardDeviation(portfolioReturnSelector);
+
+                return portfolioReturn.SharpeRatio(riskFreeRate, standardDeviation);
+            }
+        }
+
+        #endregion
+
     }
 }
