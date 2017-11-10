@@ -12,7 +12,7 @@ namespace MathAnalytics
         public static decimal CalculateProrata(this decimal value, decimal interestRate, int numberOfDays)
         {
             if (numberOfDays == 0)
-                return 0;
+                throw new DivideByZeroException(nameof(numberOfDays));
 
             return Convert.ToDecimal(Math.Pow(1 + ((double)interestRate / 100), 1 / (double)numberOfDays) - 1) * 100;
         }
@@ -20,7 +20,7 @@ namespace MathAnalytics
         public static double CalculateProrata(this double value, double interestRate, int numberOfDays)
         {
             if (numberOfDays == 0)
-                return 0;
+                throw new DivideByZeroException(nameof(numberOfDays));
 
             return (Math.Pow(1 + interestRate / 100, 1 / (double)numberOfDays) - 1) * 100;
         }
@@ -28,7 +28,7 @@ namespace MathAnalytics
         public static float CalculateProrata(this float value, float interestRate, int numberOfDays)
         {
             if (numberOfDays == 0)
-                return 0;
+                throw new DivideByZeroException(nameof(numberOfDays));
 
             return (float)(Math.Pow(1 + ((double)interestRate / 100), 1 / (double)numberOfDays) - 1) * 100;
         }

@@ -134,36 +134,45 @@ namespace MathAnalytics.Test.Extensions
 
         #endregion
 
-        #region SourceIsEmptyCollection - ZeroReturned
+        #region SourceIsEmptyCollection - DivideByZeroExceptionThrown
 
         [Fact]
-        public void WeightedAverage_IEnumerableToScalar_DecimalProperty_SourceIsEmptyCollection_ZeroReturned()
+        public void WeightedAverage_IEnumerableToScalar_DecimalProperty_SourceIsEmptyCollection_DivideByZeroExceptionThrown()
         {
             IEnumerable<WeightedItem<decimal>> source = new List<WeightedItem<decimal>>();
 
-            var resultList = source.WeightedAverage(x => x.Value, x => x.Weight);
+            Action comparison = () =>
+            {
+                source.WeightedAverage(x => x.Value, x => x.Weight);
+            };
 
-            resultList.Should().Be(0M);
+            comparison.ShouldThrow<DivideByZeroException>();
         }
 
         [Fact]
-        public void WeightedAverage_IEnumerableToScalar_DoubleProperty_SourceIsEmptyCollection_ZeroReturned()
+        public void WeightedAverage_IEnumerableToScalar_DoubleProperty_SourceIsEmptyCollection_DivideByZeroExceptionThrown()
         {
             IEnumerable<WeightedItem<double>> source = new List<WeightedItem<double>>();
 
-            var resultList = source.WeightedAverage(x => x.Value, x => x.Weight);
+            Action comparison = () =>
+            {
+                source.WeightedAverage(x => x.Value, x => x.Weight);
+            };
 
-            resultList.Should().Be(0);
+            comparison.ShouldThrow<DivideByZeroException>();
         }
 
         [Fact]
-        public void WeightedAverage_IEnumerableToScalar_FloatProperty_SourceIsEmptyCollection_ZeroReturned()
+        public void WeightedAverage_IEnumerableToScalar_FloatProperty_SourceIsEmptyCollection_DivideByZeroExceptionThrown()
         {
             IEnumerable<WeightedItem<float>> source = new List<WeightedItem<float>>();
 
-            var resultList = source.WeightedAverage(x => x.Value, x => x.Weight);
+            Action comparison = () =>
+            {
+                source.WeightedAverage(x => x.Value, x => x.Weight);
+            };
 
-            resultList.Should().Be(0F);
+            comparison.ShouldThrow<DivideByZeroException>();
         }
 
         #endregion

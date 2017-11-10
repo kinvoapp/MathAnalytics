@@ -1,4 +1,6 @@
-﻿namespace MathAnalytics
+﻿using System;
+
+namespace MathAnalytics
 {
     // Licensed to the .NET Foundation under one or more agreements.
     // The .NET Foundation licenses this file to you under the MIT license.
@@ -8,7 +10,7 @@
         public static decimal RatioOver(this decimal numerator, decimal denominator)
         {
             if (denominator == 0)
-                return 0;
+                throw new DivideByZeroException(nameof(denominator));
 
             return (numerator / denominator);
         }
@@ -16,7 +18,7 @@
         public static double RatioOver(this double numerator, double denominator)
         {
             if (denominator == 0)
-                return 0;
+                throw new DivideByZeroException(nameof(denominator));
 
             return (numerator / denominator);
         }
@@ -24,7 +26,7 @@
         public static float RatioOver(this float numerator, float denominator)
         {
             if (denominator == 0)
-                return 0;
+                throw new DivideByZeroException(nameof(denominator));
 
             return (numerator / denominator);
         }

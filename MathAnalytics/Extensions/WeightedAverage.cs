@@ -32,7 +32,7 @@ namespace MathAnalytics
             if (weightSum != 0)
                 return weightedValueSum / weightSum;
             else
-                return 0;
+                throw new DivideByZeroException(nameof(weightSum));
         }
 
         public static double WeightedAverage<T>(this IEnumerable<T> source, Func<T, double> value, Func<T, double> weight)
@@ -58,7 +58,7 @@ namespace MathAnalytics
             if (weightSum != 0)
                 return weightedValueSum / weightSum;
             else
-                return 0;
+                throw new DivideByZeroException(nameof(weightSum));
         }
 
         public static float WeightedAverage<T>(this IEnumerable<T> source, Func<T, float> value, Func<T, float> weight)
@@ -84,7 +84,7 @@ namespace MathAnalytics
             if (weightSum != 0)
                 return weightedValueSum / weightSum;
             else
-                return 0;
+                throw new DivideByZeroException(nameof(weightSum));
         }
     }
 }
