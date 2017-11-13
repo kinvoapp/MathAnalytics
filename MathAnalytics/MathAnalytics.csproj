@@ -13,7 +13,9 @@
     <PackageReleaseNotes>New methods:
 - Variance
 - StandardDeviation
-- SharpeRatio</PackageReleaseNotes>
+- SharpeRatio
+- Covariance
+- Beta</PackageReleaseNotes>
   </PropertyGroup>
 
 </Project>
