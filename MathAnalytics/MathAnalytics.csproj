@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.4</TargetFramework>
-    <Version>1.4.0</Version>
+    <Version>1.4.1</Version>
     <Description>MathAnalytics is a collection of extensions methods to make easy a lot of statistical calculations.</Description>
     <Authors>Mateus Lopes</Authors>
     <Company />
@@ -10,10 +10,9 @@
     <PackageLicenseUrl>https://github.com/lopes19/MathAnalytics</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/lopes19/MathAnalytics</PackageProjectUrl>
     <PackageTags>math statistics calculation calculator</PackageTags>
-    <PackageReleaseNotes>New methods:
-- RealRateOfReturn</PackageReleaseNotes>
-    <AssemblyVersion>1.4.0.0</AssemblyVersion>
-    <FileVersion>1.4.0.0</FileVersion>
+    <PackageReleaseNotes>Bug fix in SharpeRatio calculation.</PackageReleaseNotes>
+    <AssemblyVersion>1.4.1.0</AssemblyVersion>
+    <FileVersion>1.4.1.0</FileVersion>
   </PropertyGroup>
 
 </Project>

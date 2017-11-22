@@ -295,7 +295,7 @@ namespace MathAnalytics.Test.Extensions
 
             source
                 .OrderBy(x => x.ReferenceDate)
-                .SharpeRatio(x => x.PortfolioReturn, x => x.RiskFreeRate).Should().Be(2.8217884382811009251231451007M);
+                .SharpeRatio(x => x.PortfolioReturn, x => x.RiskFreeRate).Should().Be(0.028217884382811009251231451M);
         }
 
         [Fact]
@@ -305,7 +305,7 @@ namespace MathAnalytics.Test.Extensions
 
             source
                 .OrderBy(x => x.ReferenceDate)
-                .SharpeRatio(x => x.PortfolioReturn, x => x.RiskFreeRate).Should().Be(2.8217884382811032);
+                .SharpeRatio(x => x.PortfolioReturn, x => x.RiskFreeRate).Should().Be(0.028217884382811025);
         }
 
         [Fact]
@@ -315,7 +315,7 @@ namespace MathAnalytics.Test.Extensions
 
             source
                 .OrderBy(x => x.ReferenceDate)
-                .SharpeRatio(x => x.PortfolioReturn, x => x.RiskFreeRate).Should().Be(2.82179761F);
+                .SharpeRatio(x => x.PortfolioReturn, x => x.RiskFreeRate).Should().Be(0.02821797F);
         }
 
         #endregion

@@ -55,17 +55,12 @@ namespace MathAnalytics
                 throw new ArgumentNullException(nameof(riskFreeRateSelector));
             }
 
-            decimal portfolioReturn = 0M;
-            decimal riskFreeRate = 0M;
-
             checked
             {
-                foreach (TSource item in source)
-                {
-                    portfolioReturn = portfolioReturn.AccumulateCompoundInterest(portfolioReturnSelector(item));
-                    riskFreeRate = riskFreeRate.AccumulateCompoundInterest(riskFreeRateSelector(item));
-                }
-
+               
+                var portfolioReturn = source.AccumulateCompoundInterest(portfolioReturnSelector) / 100;
+                var riskFreeRate = source.AccumulateCompoundInterest(riskFreeRateSelector) / 100;
+               
                 var standardDeviation = source.StandardDeviation(portfolioReturnSelector);
 
                 return portfolioReturn.SharpeRatio(riskFreeRate, standardDeviation);
@@ -89,16 +84,10 @@ namespace MathAnalytics
                 throw new ArgumentNullException(nameof(riskFreeRateSelector));
             }
 
-            double portfolioReturn = 0;
-            double riskFreeRate = 0;
-
             checked
             {
-                foreach (TSource item in source)
-                {
-                    portfolioReturn = portfolioReturn.AccumulateCompoundInterest(portfolioReturnSelector(item));
-                    riskFreeRate = riskFreeRate.AccumulateCompoundInterest(riskFreeRateSelector(item));
-                }
+                var portfolioReturn = source.AccumulateCompoundInterest(portfolioReturnSelector) / 100;
+                var riskFreeRate = source.AccumulateCompoundInterest(riskFreeRateSelector) / 100;
 
                 var standardDeviation = source.StandardDeviation(portfolioReturnSelector);
 
@@ -123,16 +112,10 @@ namespace MathAnalytics
                 throw new ArgumentNullException(nameof(riskFreeRateSelector));
             }
 
-            float portfolioReturn = 0;
-            float riskFreeRate = 0;
-
             checked
             {
-                foreach (TSource item in source)
-                {
-                    portfolioReturn = portfolioReturn.AccumulateCompoundInterest(portfolioReturnSelector(item));
-                    riskFreeRate = riskFreeRate.AccumulateCompoundInterest(riskFreeRateSelector(item));
-                }
+                var portfolioReturn = source.AccumulateCompoundInterest(portfolioReturnSelector) / 100;
+                var riskFreeRate = source.AccumulateCompoundInterest(riskFreeRateSelector) / 100;
 
                 var standardDeviation = source.StandardDeviation(portfolioReturnSelector);
 
