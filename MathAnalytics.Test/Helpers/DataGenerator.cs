@@ -68,6 +68,18 @@ namespace MathAnalytics.Test.Helpers
             return returnList;
         }
 
+        public static IEnumerable<RealRateOfReturnSampleItem<T>> CreateRealRateOfReturnSampleItemList<T>()
+        {
+            var returnList = new List<RealRateOfReturnSampleItem<T>>();
+
+            returnList.Add(new RealRateOfReturnSampleItem<T>(new DateTime(2012, 01, 01), GetValue<T>(6.532690000), GetValue<T>(5.521955)));
+            returnList.Add(new RealRateOfReturnSampleItem<T>(new DateTime(2012, 01, 03), GetValue<T>(8.789250000), GetValue<T>(6.565489)));
+            returnList.Add(new RealRateOfReturnSampleItem<T>(new DateTime(2012, 01, 07), GetValue<T>(9.847520000), GetValue<T>(7.594824)));
+            returnList.Add(new RealRateOfReturnSampleItem<T>(new DateTime(2012, 01, 12), GetValue<T>(16.51326900), GetValue<T>(12.59152)));
+
+            return returnList;
+        }
+
         private static T GetValue<T>(double value)
         {
             return (T)Convert.ChangeType(value, typeof(T));
