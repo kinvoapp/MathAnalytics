@@ -181,7 +181,7 @@ namespace MathAnalytics.Test.Extensions
 
         #endregion
 
-        #region SourceIsNotEmptyButDifferentLengths - BetaReturned
+        #region SourceIsNotEmptyButDifferentLengths - ArgumentExceptionThrown
 
         [Fact]
         public void BetaOfDecimalList_SourceIsNotEmptyButDifferentLengths_ArgumentExceptionThrown()
