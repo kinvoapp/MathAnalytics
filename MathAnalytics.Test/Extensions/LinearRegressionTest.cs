@@ -177,7 +177,7 @@ namespace MathAnalytics.Test.Extensions
 
         #endregion
 
-        #region SourceIsNotEmptyButDifferentLengths -  LinearRegressionReturned
+        #region SourceIsNotEmptyButDifferentLengths -  ArgumentException
 
         [Fact]
         public void LinearRegressionOfDecimalList_SourceIsNotEmptyButDifferentLengths_ArgumentExceptionThrown()
