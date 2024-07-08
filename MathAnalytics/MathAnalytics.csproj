@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.4</TargetFramework>
-    <Version>1.5.0</Version>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Version>2.0.0</Version>
     <Description>MathAnalytics is a collection of extensions methods to make easy a lot of statistical calculations.</Description>
     <Authors>Mateus Lopes</Authors>
     <Company />
@@ -10,9 +10,10 @@
     <PackageLicenseUrl>https://github.com/lopes19/MathAnalytics</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/kinvoapp/MathAnalytics</PackageProjectUrl>
     <PackageTags>math statistics calculation calculator</PackageTags>
-    <PackageReleaseNotes>Bug fix in SharpeRatio calculation.</PackageReleaseNotes>
+    <PackageReleaseNotes>Including Payment (PMT) method.</PackageReleaseNotes>
     <AssemblyVersion>1.4.1.0</AssemblyVersion>
     <FileVersion>1.4.1.0</FileVersion>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
 </Project>

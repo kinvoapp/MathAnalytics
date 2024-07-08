@@ -27,6 +27,9 @@ bld/
 *.VisualState.xml
 TestResult.xml
 
+# Visual Studo cache/options directory
+.vs/
+
 # Build Results of an ATL Project
 [Dd]ebugPS/
 [Rr]eleasePS/
